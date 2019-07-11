@@ -30,7 +30,7 @@ public class Klass {
     }
 
     public void assignLeader(Student student) {
-        if (this.isAppend){
+        if (student.getKlass().number == this.number){
             this.setLeader(student);
         }
         else System.out.print("It is not one of us.\n");
@@ -45,6 +45,6 @@ public class Klass {
     }
 
     public void appendMember(Student student) {
-        this.isAppend=true;
+        student.setKlass(this);
     }
 }

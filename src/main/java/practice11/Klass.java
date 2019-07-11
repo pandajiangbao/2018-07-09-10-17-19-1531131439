@@ -1,10 +1,12 @@
 package practice11;
 
+import java.util.List;
+
 public class Klass {
     private int number;
     private String displayName;
     private Student leader;
-    private boolean isAppend=false;
+    private Teacher teacher;
     public Klass() {
     }
 
@@ -29,13 +31,6 @@ public class Klass {
         this.displayName = displayName;
     }
 
-    public void assignLeader(Student student) {
-        if (this.isAppend){
-            this.setLeader(student);
-        }
-        else System.out.print("It is not one of us.\n");
-    }
-
     public Student getLeader() {
         return leader;
     }
@@ -44,15 +39,35 @@ public class Klass {
         this.leader = leader;
     }
 
-    public boolean isAppend() {
-        return isAppend;
+    public Teacher getTeacher() {
+        return teacher;
     }
 
-    public void setAppend(boolean append) {
-        isAppend = append;
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+    public boolean isIn(Student student){
+        if(student.getKlass()!=null&&student.getKlass().getNumber() == this.number){
+            return true;
+        }
+        return false;
     }
 
-    public void appendMember(Student student) {
-        this.isAppend=true;
+    public void appendMember(Student student){
+        student.setKlass(this);
+        if (this.teacher!=null) {
+            this.teacher.studentAppend(this, student);
+        }
     }
+
+    public void assignLeader(Student student) {
+        if (student.getKlass().number == this.number){
+            this.setLeader(student);
+            if (this.teacher!=null){
+                this.teacher.studentLeader(this,student);
+            }
+        }
+        else System.out.print("It is not one of us.\n");
+    }
+
 }
