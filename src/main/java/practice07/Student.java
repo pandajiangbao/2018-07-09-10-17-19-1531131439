@@ -3,15 +3,12 @@ package practice07;
 public class Student {
     private String name;
     private int age;
-    private int klass;
+    private Klass klass;
 
-    public Student(String name, int age, int klass) {
+    public Student(String name, int age, Klass klass) {
         this.name = name;
         this.age = age;
         this.klass = klass;
-    }
-
-    public Student(String tom, int age, Klass klass) {
     }
 
     public String getName() {
@@ -30,15 +27,15 @@ public class Student {
         this.age = age;
     }
 
-    public int getKlass() {
+    public Klass getKlass() {
         return klass;
     }
 
-    public void setKlass(int klass) {
+    public void setKlass(Klass klass) {
         this.klass = klass;
     }
 
     public String introduce() {
-        return "My name is "+this.name+". I am "+this.age+" years old. I am a "+this.getClass().getSimpleName()+". I am at Class "+this.klass+".";
+        return "My name is "+this.name+". I am "+this.age+" years old. I am a "+this.getClass().getSimpleName()+". I am at "+this.klass.getDisplayName()+".";
     }
 }

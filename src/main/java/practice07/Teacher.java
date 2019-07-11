@@ -41,11 +41,12 @@ public class Teacher {
     }
 
     public String introduce() {
-        String string=this.klass.getNumber()!=0?"Class "+String.valueOf(this.klass)+".":"No Class.";
+        String string=this.klass!=null?this.klass.getDisplayName()+".":"No Class.";
         return "My name is "+this.name+". I am "+this.age+" years old. I am a "+this.getClass().getSimpleName()+". I teach "+string;
     }
 
     public String introduceWith(Student jerry) {
-        return "My name is Tom. I am 21 years old. I am a Teacher. I don't teach Jerry.";
+        String string=this.klass.getNumber()!=jerry.getKlass().getNumber()?"don't teach "+jerry.getName()+".":"teach "+jerry.getName()+".";
+        return "My name is "+this.name+". I am "+this.age+" years old. I am a Teacher. I "+string;
     }
 }

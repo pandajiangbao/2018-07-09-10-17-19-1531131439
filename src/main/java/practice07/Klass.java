@@ -9,11 +9,7 @@ public class Klass {
 
     public Klass(int number) {
         this.number = number;
-    }
-
-    public Klass(int number, String displayName) {
-        this.number = number;
-        this.displayName = displayName;
+        this.displayName="Class "+String.valueOf(number);
     }
 
     public int getNumber() {
