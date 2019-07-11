@@ -1,31 +1,13 @@
 package practice05;
 
-public class Worker {
-    private String name;
-    private int age;
+public class Worker extends Person {
 
     public Worker(String name, int age) {
-        this.name = name;
-        this.age = age;
+        super(name, age);
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
+    @Override
     public String introduce() {
-        return "My name is "+this.name+". I am "+this.age+" years old. I am a "+this.getClass().getSimpleName()+". I have a job.";
+        return super.introduce()+" I am a "+this.getClass().getSimpleName()+". I have a job.";
     }
 }

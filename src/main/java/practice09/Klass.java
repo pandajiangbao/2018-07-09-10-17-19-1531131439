@@ -4,7 +4,7 @@ public class Klass {
     private int number;
     private String displayName;
     private Student leader;
-
+    private boolean isAppend=false;
     public Klass() {
     }
 
@@ -29,8 +29,11 @@ public class Klass {
         this.displayName = displayName;
     }
 
-    public void assignLeader(Student jerry) {
-        this.setLeader(jerry);
+    public void assignLeader(Student student) {
+        if (this.isAppend){
+            this.setLeader(student);
+        }
+        else System.out.print("It is not one of us.\n");
     }
 
     public Student getLeader() {
@@ -39,5 +42,9 @@ public class Klass {
 
     public void setLeader(Student leader) {
         this.leader = leader;
+    }
+
+    public void appendMember(Student student) {
+        this.isAppend=true;
     }
 }

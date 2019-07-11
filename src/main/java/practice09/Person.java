@@ -3,7 +3,7 @@ package practice09;
 import java.util.Objects;
 
 public class Person {
-    private int leader;
+    private int id;
     private String name;
     private int age;
     public Person(String name, int age) {
@@ -11,18 +11,26 @@ public class Person {
         this.age=age;
     }
 
-    public Person(int leader, String name, int age) {
-        this.leader = leader;
+    public Person(int id, String name, int age) {
+        this.id = id;
         this.name = name;
         this.age = age;
     }
 
-    public int getLeder() {
-        return leader;
+    public int getId() {
+        return id;
     }
 
-    public void setLeder(int leader) {
-        this.leader = leader;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getLeder() {
+        return id;
+    }
+
+    public void setLeder(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -41,19 +49,18 @@ public class Person {
         this.age = age;
     }
 
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
-        return leader == person.leader &&
+        return id == person.id &&
                 age == person.age &&
                 Objects.equals(name, person.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(leader, name, age);
+        return Objects.hash(id, name, age);
     }
 
     public String introduce() {

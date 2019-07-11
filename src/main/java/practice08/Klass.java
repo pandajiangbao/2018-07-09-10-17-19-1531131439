@@ -8,7 +8,7 @@ public class Klass {
     public Klass() {
     }
 
-    public Klass(int id) {
+    public Klass(int number) {
         this.number = number;
         this.displayName="Class "+String.valueOf(number);
     }
@@ -29,8 +29,8 @@ public class Klass {
         this.displayName = displayName;
     }
 
-    public void assignLeader(Student jerry) {
-        this.setLeader(jerry);
+    public void assignLeader(Student student) {
+        this.setLeader(student);
     }
 
     public Student getLeader() {
